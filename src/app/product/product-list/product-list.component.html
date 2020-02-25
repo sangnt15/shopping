@@ -1,0 +1,20 @@
+<h2>Products</h2>
+
+<div *ngFor="let product of products">
+   <h3>
+         <a [title]="product.name + ' details'" [routerLink]="['/customer/product',product.id]">{{ product.name }}</a>
+   </h3>
+   
+   <p *ngIf="product.description">
+      Description: {{ product.description }}
+   </p>
+   
+   <button (click)="onSelect(product)" [class.selected]="product === selectedProduct">
+      choose product
+   </button>
+</div>
+<app-product-child [product]="selectedProduct" (productOut)="getOutput($event)"></app-product-child>
+<div class="main" *ngIf="productOut">
+   <h1>output binding</h1>
+   {{ productOut.name }}
+</div>

@@ -1,0 +1,10 @@
+<div class="container" *ngIf="product">
+    <h3>
+          <a [title]="product.name + ' details'">{{ product.name }}</a>
+    </h3>
+    
+    <p *ngIf="product.description">
+       Description: {{ product.description }}
+    </p>
+    <button type="button" class="btn btn-danger" (click)="back()">Back</button>
+ </div>
